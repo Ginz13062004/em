@@ -231,7 +231,7 @@ user-select: none;
 }
 
 /* ======= Responsive for small screens (max 390px) ======= */
-@media (max-width: 390px) {
+@media (max-width: 375px) {
   body {
     padding: 5px 10px;
   }
@@ -361,5 +361,75 @@ user-select: none;
 
   .paper {
     max-width: 95vw;
+  }
+}
+@media (max-width: 375px) {
+  body {
+    padding: 8px 12px;
+  }
+
+  .main-content {
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+    align-items: center;
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+
+  .left-side {
+    flex: none;
+    width: 90vw;
+    max-width: 280px;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+
+  .main-image {
+    width: 100%;
+    max-height: 240px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .right-side {
+    flex: none;
+    width: 90vw;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  input#pin-input {
+    width: 100%;
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .keypad {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 58px);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .keypad button {
+    font-size: 20px;
+    width: 100%;
+    height: 50px;
+  }
+
+  .slideshow {
+    width: 90vw;
+    max-width: 300px;
+    height: 170px;
+  }
+
+  .paper {
+    max-width: 90vw;
+    margin: 0 auto;
   }
 }
