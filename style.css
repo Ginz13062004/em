@@ -1,0 +1,320 @@
+body {
+  display: flex;
+  justify-content: center; /* canh giữa ngang */
+  align-items: center;     /* canh giữa dọc */
+  height: 100vh;           /* chiếm toàn bộ chiều cao viewport */
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f1dbf7;
+}
+
+.main-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;  /* giảm khoảng cách lại */
+    padding: 20px;
+}
+
+
+.left-side {
+    flex: 0 0 280px; /* giảm từ 320px xuống 280px */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+
+.main-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-side {
+    flex: 0 0 320px; /* cố định kích thước bên phải cho cân bằng */
+}
+
+
+.pin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+input#pin-input {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.keypad button {
+    font-size: 20px;
+    padding: 10px;
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+.envelope {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 20px;
+    background-color: #fff3f7;
+    border: 2px dashed #ff9eb5;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.letter-content {
+    margin-top: 20px;
+}
+
+.paper {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    max-width: 400px;
+}
+
+#letter-text {
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin-top: 10px;
+}
+
+.slideshow {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+.slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.9s ease-in-out;
+  z-index: 1;
+}
+
+.slideshow img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(4, 60px);
+    gap: 12px;
+    justify-content: center;
+}
+
+.keypad button {
+    background-color: #ffccd9;
+    border: 2px solid #ff9eb5;
+    border-radius: 6px;
+    box-shadow: 0 4px #d488a2;
+    font-size: 22px;
+    font-weight: 600;
+    color: #800040;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    /* Hỗ trợ Safari */
+    user-select: none;
+    /* Hỗ trợ các trình duyệt khác */
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.keypad button:hover {
+    background-color: #ffb3c5;
+}
+
+.keypad button:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px #d488a2;
+}
+
+.main-content {
+    display: flex;
+    justify-content: flex-start;
+    /* Canh trái cho ảnh và bàn phím gần nhau */
+    align-items: center;
+    gap: 20px;
+    /* Khoảng cách nhỏ hơn, để gần nhau */
+    padding: 20px;
+}
+
+.left-side {
+    flex: 0 0 320px;
+    /* cố định chiều rộng ảnh */
+    padding-left: 50px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.left-side:hover {
+    transform: scale(1.05) rotate(2deg);
+    /* zoom nhẹ và xoay nhẹ khi hover */
+    box-shadow: 0 8px 15px rgba(255, 105, 180, 0.5);
+    border-radius: 15px;
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 5px 10px rgba(255, 105, 180, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.main-image:hover {
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.7);
+}
+/* Responsive cho màn hình nhỏ, ví dụ iPhone 11 (~375px) */
+@media (max-width: 400px) {
+  body {
+    padding: 10px;
+  }
+
+  .main-content {
+    flex-direction: column;   /* xếp dọc thay vì ngang */
+    gap: 15px;
+    padding: 10px;
+    align-items: center;
+  }
+.left-side {
+    flex: none;
+    width: 80vw;       /* Chiếm 80% chiều rộng màn hình */
+    max-width: 280px;  /* Giới hạn max để không quá to */
+    margin: 0 auto;    /* Căn giữa */
+    padding-left: 0;   /* Bỏ padding trái */
+  }
+
+  .main-image {
+    width: 100%;       /* Chiếm hết 100% khung ảnh */
+    height: auto;      /* Giữ tỉ lệ ảnh */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
+    display: block;    /* để margin auto có tác dụng */
+    margin: 0 auto;    /* Căn giữa ảnh */
+  }
+  .right-side {
+    flex: none;
+    width: 90vw;              /* bàn phím chiếm 90% chiều rộng */
+    max-width: 320px;
+  }
+
+  input#pin-input {
+    width: 100%;              /* ô nhập pin rộng 100% container */
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .keypad {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 60px);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .keypad button {
+    font-size: 20px;
+    width: 100%;
+    height: 50px;
+  }
+
+  .slideshow {
+    width: 90vw;
+    max-width: 320px;
+    height: 180px;
+  }
+  
+  .paper {
+    max-width: 90vw;
+  }
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+.hearts-container {
+    position: fixed;           /* phủ toàn bộ màn hình */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    z-index: 9999;             /* nổi lên trên hết */
+    pointer-events: none;      /* không chặn click */
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  width: 30px;
+  height: 30px;
+  background-color: deeppink;
+  transform: translateY(100px) rotate(45deg); /* Đẩy xuống dưới khỏi bị thấy */
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+  z-index: 999;
+}
+
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: deeppink;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -15px;   /* nửa chiều cao */
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: -15px;  /* nửa chiều rộng */
+}
+
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100px) rotate(45deg); /* bắt đầu từ dưới */
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(45deg); /* bay lên trên toàn màn */
+    opacity: 0;
+  }
+}

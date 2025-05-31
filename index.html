@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thư bí mật 💌</title>
+     <link rel="icon" href="images/img6.jpg" type="image/png">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="main-content">
+        <div class="left-side">
+            <img src="em.jpg" alt="Ảnh của bạn" class="main-image" />
+        </div>
+
+        <div class="right-side">
+            <div class="pin-container" id="pin-section">
+                <input type="password" id="pin-input" placeholder="ENTER PASSWORD" readonly />
+                <div class="keypad">
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>  
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendNumber('7')">7</button>
+                    <button onclick="appendNumber('8')">8</button>
+                    <button onclick="appendNumber('9')">9</button>
+                    <button onclick="clearPin()">C</button>
+                    <button onclick="appendNumber('0')">0</button>
+                    <button onclick="checkPin()">OK</button>
+                </div>
+            </div>
+
+            <div class="envelope hidden" id="envelope" onclick="openEnvelope()">
+                📩 <br> Ấn để mở thư
+            </div>
+
+            <div class="letter-content hidden" id="letter-content">
+                <div class="paper">
+                    <h2>Thư gửi người thương 💖</h2>
+                    <p id="letter-text"></p>
+                </div>
+
+                <div class="slideshow hidden" id="slideshow">
+                    <img id="slide-image" src="images/img1.jpg" alt="Kỷ niệm">
+                </div>
+                  <div class="hearts-container hidden" id="hearts-container"></div>
+            </div>
+        </div>
+      
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- <script>
+    // Mã PIN để mở thư
+    const correctPin = "1234";
+    let enteredPin = "";
+
+    function appendNumber(num) {
+        if (enteredPin.length < 4) {
+            enteredPin += num;
+            document.getElementById("pin-input").value = enteredPin;
+        }
+    }
+
+    function clearPin() {
+        enteredPin = "";
+        document.getElementById("pin-input").value = "";
+    }
+
+    function checkPin() {
+        if (enteredPin === correctPin) {
+            document.getElementById("pin-section").classList.add("hidden");
+            document.getElementById("envelope").classList.remove("hidden");
+        } else {
+            alert("Mã PIN không đúng. Vui lòng thử lại.");
+            clearPin();
+        }
+    }
+
+    function openEnvelope() {
+        document.getElementById("envelope").classList.add("hidden");
+        document.getElementById("letter-content").classList.remove("hidden");
+        showLetter();
+    }
+
+    function showLetter() {
+        const letterText = "Chào em yêu, đây là bức thư bí mật dành riêng cho em. Anh yêu em rất nhiều! 💕";
+        document.getElementById("letter-text").innerText = letterText;
+
+        // Hiển thị slideshow
+        const images = ["images/img1.jpg", "images/img2.jpg", "images/img3.jpg"];
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("slide-image").src = images[currentIndex];
+        }, 3000);
+    } -->
