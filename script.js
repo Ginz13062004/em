@@ -44,6 +44,8 @@ function typeLetterText() {
   const textElement = document.getElementById("letter-text");
   const speed = 40;
 
+  if (letterIndex === 0) textElement.textContent = "";
+
   function typeChar() {
     if (letterIndex < letterMessage.length) {
       textElement.textContent += letterMessage.charAt(letterIndex);
@@ -66,31 +68,44 @@ const imagePaths = [
   "images/img6.jpg"
 ];
 
-let slideIndex = 0;
-
 function startSlideshow() {
   const slideshow = document.getElementById("slideshow");
-  const image = document.getElementById("slide-image");
+  const img1 = document.getElementById("slide-image-1");
+  const img2 = document.getElementById("slide-image-2");
   slideshow.classList.remove("hidden");
 
-  image.src = imagePaths[0];
-  image.classList.add("active");  // Bật opacity hiển thị ảnh đầu
+  let currentIndex = 0;
+  let showingFirst = true;
 
-  slideIndex = 1;
+  img1.src = imagePaths[0];
+  img1.classList.add("active");
+  img2.classList.remove("active");
 
-const interval = setInterval(() => {
-  if (slideIndex >= imagePaths.length) {
-    clearInterval(interval);
-    triggerHearts();
-  } else {
-    image.classList.remove("active");
-    setTimeout(() => {
-      image.src = imagePaths[slideIndex];
-      image.classList.add("active");
-      slideIndex++; // tăng sau khi fade in xong
-    }, 500);
-  }
-}, 2500);
+  currentIndex = 1;
+
+  const totalSlides = imagePaths.length;
+
+  const interval = setInterval(() => {
+    if (currentIndex >= totalSlides) {
+      clearInterval(interval);
+      triggerHearts();
+      return;
+    }
+
+    if (showingFirst) {
+      img2.src = imagePaths[currentIndex];
+      img2.classList.add("active");
+      img1.classList.remove("active");
+    } else {
+      img1.src = imagePaths[currentIndex];
+      img1.classList.add("active");
+      img2.classList.remove("active");
+    }
+
+    showingFirst = !showingFirst;
+    currentIndex++;
+  }, 2500);
+}
 
 function triggerHearts() {
   const container = document.getElementById("hearts-container");
@@ -124,5 +139,4 @@ function triggerHearts() {
       }
     });
   }
-}
 }

@@ -1,57 +1,57 @@
-    <!DOCTYPE html>
-    <html lang="vi">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Thư bí mật 💌</title>
-        <link rel="icon" href="images/img6.jpg" type="image/png">
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="main-content">
-            <div class="left-side">
-                <img src="em.jpg" alt="Ảnh của bạn" class="main-image" />
-            </div>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Letter & Slideshow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-            <div class="right-side">
-                <div class="pin-container" id="pin-section">
-                    <input type="password" id="pin-input" placeholder="ENTER PASSWORD" readonly />
-                    <div class="keypad">
-                        <button onclick="appendNumber('1')">1</button>
-                        <button onclick="appendNumber('2')">2</button>
-                        <button onclick="appendNumber('3')">3</button>
-                        <button onclick="appendNumber('4')">4</button>
-                        <button onclick="appendNumber('5')">5</button>  
-                        <button onclick="appendNumber('6')">6</button>
-                        <button onclick="appendNumber('7')">7</button>
-                        <button onclick="appendNumber('8')">8</button>
-                        <button onclick="appendNumber('9')">9</button>
-                        <button onclick="clearPin()">C</button>
-                        <button onclick="appendNumber('0')">0</button>
-                        <button onclick="checkPin()">OK</button>
-                    </div>
-                </div>
+  <div class="main-content">
+    <div class="left-side">
+      <img src="em.jpg" alt="Main" class="main-image" />
+    </div>
+    <div class="right-side">
 
-                <div class="envelope hidden" id="envelope" onclick="openEnvelope()">
-                    📩 <br> Ấn để mở thư
-                </div>
-
-                <div class="letter-content hidden" id="letter-content">
-                    <div class="paper">
-                        <h2>Thư gửi người thương 💖</h2>
-                        <p id="letter-text"></p>
-                    </div>
-
-                    <div class="slideshow hidden" id="slideshow">
-                        <img id="slide-image" src="images/img1.jpg" alt="Kỷ niệm">
-                    </div>
-                    <div class="hearts-container hidden" id="hearts-container"></div>
-                </div>
-            </div>
-        
-
+      <section id="pin-section" class="pin-container">
+        <input type="text" id="pin-input" readonly placeholder="Nhập mã PIN" />
+        <div class="keypad">
+          <button onclick="appendNumber('1')">1</button>
+          <button onclick="appendNumber('2')">2</button>
+          <button onclick="appendNumber('3')">3</button>
+          <button onclick="appendNumber('4')">4</button>
+          <button onclick="appendNumber('5')">5</button>
+          <button onclick="appendNumber('6')">6</button>
+          <button onclick="appendNumber('7')">7</button>
+          <button onclick="appendNumber('8')">8</button>
+          <button onclick="appendNumber('9')">9</button>
+          <button onclick="clearPin()">C</button>
+          <button onclick="appendNumber('0')">0</button>
+          <button onclick="checkPin()">OK</button>
         </div>
+      </section>
 
-        <script src="script.js"></script>
-    </body>
-    </html>
+      <div id="envelope" class="envelope hidden" onclick="openEnvelope()">
+        📩 Click mở thư
+      </div>
+
+      <div id="letter-content" class="letter-content hidden">
+        <div class="paper">
+          <pre id="letter-text"></pre>
+        </div>
+      </div>
+
+      <div id="slideshow" class="hidden slideshow">
+        <img id="slide-image-1" class="active" src="" alt="Slide 1" />
+        <img id="slide-image-2" src="" alt="Slide 2" />
+      </div>
+
+    </div>
+  </div>
+
+  <div id="hearts-container" class="hearts-container hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
