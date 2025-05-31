@@ -1,270 +1,177 @@
-/* ======= Base Styles ======= */
-body {
-  margin: 0;
-  padding: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f1dbf7;
-  min-height: 100vh;
+/* Reset cơ bản */
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Container chính */
 .main-content {
   max-width: 700px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center; /* Căn giữa ngang */
   align-items: center;
   gap: 20px;
   padding: 20px;
-  flex-wrap: wrap; /* Cho phép xuống dòng khi màn nhỏ */
-  box-sizing: border-box;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Bên trái chứa ảnh */
 .left-side {
-  flex: 0 0 320px;
-  padding-left: 50px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.left-side:hover {
-  transform: scale(1.05) rotate(2deg);
-  box-shadow: 0 8px 15px rgba(255, 105, 180, 0.5);
-  border-radius: 15px;
+  flex: 0 0 320px; /* Cố định chiều rộng, có thể điều chỉnh */
+  max-width: 100%;
+  padding-left: 0;
 }
 
 .main-image {
   width: 100%;
   height: auto;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0 5px 10px rgba(255, 105, 180, 0.3);
-  transition: box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
+  display: block;
 }
 
-.main-image:hover {
-  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.7);
-}
-
+/* Bên phải chứa nội dung */
 .right-side {
-  flex: 0 0 320px;
-  box-sizing: border-box;
-}
-
-.pin-container {
+  flex: 1;
+  max-width: 350px;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
+/* Input số pin */
 input#pin-input {
   font-size: 20px;
-  text-align: center;
-  padding: 10px;
-  width: 200px;
-  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline-color: hotpink;
+  width: 100%;
   box-sizing: border-box;
 }
 
+/* Bàn phím số */
 .keypad {
   display: grid;
-  grid-template-columns: repeat(3, 60px);
-  grid-template-rows: repeat(4, 60px);
-  gap: 12px;
-  justify-content: center;
-  box-sizing: border-box;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 70px);
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .keypad button {
-  background-color: #ffccd9;
-  border: 2px solid #ff9eb5;
-  border-radius: 6px;
-  box-shadow: 0 4px #d488a2;
-  font-size: 22px;
-  font-weight: 600;
-  color: #800040;
+  background-color: hotpink;
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
--webkit-user-select: none;
-user-select: none;
-
-  transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .keypad button:hover {
-  background-color: #ffb3c5;
+  background-color: deeppink;
 }
 
-.keypad button:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px #d488a2;
+/* Các nút đặc biệt */
+.keypad button.delete {
+  background-color: #ff6699;
 }
 
-.envelope {
-  font-size: 24px;
-  cursor: pointer;
-  padding: 20px;
-  background-color: #fff3f7;
-  border: 2px dashed #ff9eb5;
-  border-radius: 10px;
-  text-align: center;
-  margin-top: 20px;
+.keypad button.delete:hover {
+  background-color: #ff3366;
 }
 
-.letter-content {
-  margin-top: 20px;
-}
-
-.paper {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
-  max-width: 400px;
-  box-sizing: border-box;
-}
-
-#letter-text {
-  font-size: 16px;
-  line-height: 1.6;
-  white-space: pre-wrap;
-  margin-top: 10px;
-}
-
+/* Slide show */
 .slideshow {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
-}
-
-.slideshow img {
-  position: absolute;
+  max-width: 350px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.9s ease-in-out;
-  z-index: 1;
-}
-
-.slideshow img.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Heart animation */
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.hearts-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  height: 220px;
+  border-radius: 15px;
   overflow: hidden;
-  margin: 0;
-  z-index: 9999;
-  pointer-events: none;
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+  margin-top: 20px;
 }
 
-.heart {
-  position: absolute;
-  bottom: 0;
-  width: 30px;
-  height: 30px;
+/* Nút điều hướng */
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.buttons button {
+  flex: 1;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: hotpink;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
   background-color: deeppink;
-  transform: translateY(100px) rotate(45deg);
-  animation: floatUp linear forwards;
-  opacity: 0.8;
-  z-index: 999;
 }
 
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: deeppink;
-  border-radius: 50%;
+/* Các bài báo, giấy note */
+.paper {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  max-width: 350px;
 }
 
-.heart::before {
-  top: -15px;
-  left: 0;
-}
-
-.heart::after {
-  top: 0;
-  left: -15px;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(100px) rotate(45deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-120vh) rotate(45deg);
-    opacity: 0;
-  }
-}
-
-/* ======= Responsive for small screens (max 390px) ======= */
-@media (max-width: 390px) {
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 440px) {
   body {
-    padding: 5px 10px;
+    padding: 10px;
   }
 
   .main-content {
     flex-direction: column;
     gap: 15px;
-    padding: 10px;
-    align-items: center;
+    padding: 15px;
+    max-width: 100%;
   }
 
-  .left-side {
+  .left-side, .right-side {
     flex: none;
-    width: 80vw;
-    max-width: 280px;
-    margin: 0 auto;
+    width: 90vw;
+    max-width: 320px;
     padding-left: 0;
+    margin: 0 auto;
   }
 
   .main-image {
     width: 100%;
-    max-height: 250px;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
-    display: block;
-    margin: 0 auto;
-    object-fit: contain;
-  }
-
-  .right-side {
-    flex: none;
-    width: 90vw;
-    max-width: 320px;
   }
 
   input#pin-input {
-    width: 100%;
     font-size: 18px;
     padding: 8px;
   }
@@ -288,73 +195,12 @@ user-select: none;
     height: 180px;
   }
 
+  .buttons button {
+    font-size: 16px;
+    padding: 8px;
+  }
+
   .paper {
     max-width: 90vw;
-  }
-}
-@media (max-width: 440px) and (min-width: 390px) {
-  /* Chỉnh style cho Realme 5 Pro */
-  
-  body {
-    padding: 12px;
-  }
-
-  .main-content {
-    flex-direction: column;
-    gap: 18px;
-    padding: 12px;
-    align-items: center;
-  }
-
-  .left-side {
-    flex: none;
-    width: 85vw;
-    max-width: 300px;
-    margin: 0 auto;
-    padding-left: 0;
-  }
-
-  .main-image {
-    width: 100%;
-    height: auto;
-    border-radius: 14px;
-    box-shadow: 0 5px 12px rgba(255, 105, 180, 0.45);
-    display: block;
-    margin: 0 auto;
-  }
-
-  .right-side {
-    flex: none;
-    width: 95vw;
-    max-width: 320px;
-  }
-
-  input#pin-input {
-    width: 100%;
-    font-size: 19px;
-    padding: 9px;
-  }
-
-  .keypad {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 62px);
-    gap: 11px;
-    width: 100%;
-  }
-
-  .keypad button {
-    font-size: 21px;
-    width: 100%;
-    height: 54px;
-  }
-
-  .slideshow {
-    width: 95vw;
-    max-width: 320px;
-    height: 185px;
-  }
-
-  .paper {
-    max-width: 95vw;
   }
 }
