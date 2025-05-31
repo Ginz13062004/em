@@ -1,4 +1,4 @@
-const audio = new Audio('./audio/em.mp3');
+const audio = new Audio('audio/em.mp3');
 audio.loop = true;
 audio.volume = 0;
 
