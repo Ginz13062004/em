@@ -1,20 +1,19 @@
 body {
-  display: flex;
-  justify-content: center; /* canh giữa ngang */
-  align-items: center;     /* canh giữa dọc */
-  height: 100vh;           /* chiếm toàn bộ chiều cao viewport */
   margin: 0;
   padding: 20px;
   font-family: 'Segoe UI', sans-serif;
   background-color: #f1dbf7;
+  min-height: 100vh;  /* Ít nhất cao bằng viewport */
 }
 
 .main-content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;  /* giảm khoảng cách lại */
-    padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 
